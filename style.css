@@ -1,4 +1,61 @@
 @charset "utf-8";
-body {background-color: powderblue;}
-h1,h2,h3,h4,h5,h6,h7,h8{font-family: Verdana, Arial, Helvetica, sans-serif; color: midnightblue}
-p{font-family: Verdana, "Times New Roman", Times, serif; color: dimgrey}
+body {
+  background-color: powderblue;
+}
+
+h1,h2,h3,h4,h5,h6,h7,h8{
+  font-family: Verdana, Arial, Helvetica, sans-serif; color: midnightblue
+}
+
+p{
+  font-family: Verdana, "Times New Roman", Times, serif; color: dimgrey
+}
+
+.navbar {
+  overflow: hidden;
+  background-color: #e1e1e1;
+}
+
+.navbar a {
+  float: left;
+  display: block;
+  color: dimgray;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: Verdana, "Times New Roman", Times, serif;
+}
+
+.navbar a:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.navbar a.active {
+  background-color: midnightblue;
+  color: white;
+}
+
+.navbar input[type=text] {
+  float: right;
+  padding: 6px;
+  border: none;
+  margin-top: 8px;
+  margin-right: 16px;
+  font-size: 17px;
+}
+
+.navbar input[type=text] {
+    border: 1px solid #ccc;
+  }
+
+.title {
+    overflow: hidden;
+    background-color: #e9e9e9;
+}
+
+.main {
+    overflow: hidden;
+    background-color: #f1f1f1;
+}
