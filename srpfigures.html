@@ -9,26 +9,39 @@
 </head>
 <body>
 
-<h6>
-    <a href="/sites/srp/srp.html" title="main page" >main</a>
-    <a href="/sites/srp/srpabout.html" title="about the project" >about</a>
-    <a href="/sites/srp/srpdata.html" title="the raw data" >data</a>
-    <a href="/sites/srp/srpfigures.html" title="figures">figures</a>
-    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" title="some other link idk" >some other links</a>
-</h6>
+<div class="navbar">
+    <a href="/sites/srp/srp.html">main</a>
+    <a href="/sites/srp/srpabout.html">about</a>
+    <a href="/sites/srp/srpdata.html">data</a>
+    <a class="active" href="/sites/srp/srpfigures.html">figures</a>
+    <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ">some other links</a>
+    <input type="text" placeholder="Search..." name="search">
+    <script>
+    if (search > 1) {
+    alert("there's words")
+    }
+    else {
+    alert("enter something")}</script>
+</div>
 
-
+<div class = "title">
 <h2>
     Figures
 </h2>
 
+
 <h3>
     Some subheading here
 </h3>
-    
+</div>
+
+<div class = "main">
 <p>
     here's a figure:
 </p>
+   
+
 <img src="how-to-draw-a-scientific-graph.gif" width="50%">
+</div> 
 </body>
 </html>
