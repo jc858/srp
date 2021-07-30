@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <title>SRP - Main</title>
+	<meta name="Author" content=""/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    
+<div class="navbar">
+    <a href="index.html">main</a>
+    <a href="srpabout.html">about</a>
+    <a href="srpdata.html">data</a>
+    <a href="srpfigures.html">figures</a>
+    <a class="active" href="srpsearch.html">gene search</a>	
+</div>
+	
+<div class="title">
+<h2>
+    Gene Search
+</h2>
+</div>
+  
+    
+<div class="main">    
+<p>
+    Use the first search bar to search for a gene and get information about it, such as the cluster the gene is found in and its function. Use the second to enter a cluster (as seen in figures) to see all the genes associated with the cluster.
+</p>
+<p> You can type the entire gene name or just a prefix to get more or less specific results. </p>
+<p></p>
+<p>
+    Enter a Gene:
+</p>
+<form action="genesearch.php" method="post">
+	<input id="search" type="text" placeholder="Search..." name="search">
+</form>
+<p>
+    Enter a cluster number:
+</p>
+<form action="clustersearch.php" method="post">
+        <input id="search" type="text" placeholder="Search..." name="search">
+</form>
+
+</div>
+
+</body>
+
+</html>
