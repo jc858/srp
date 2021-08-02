@@ -10,12 +10,14 @@
 <body>
 
 <div class="navbar">
-    <a href="srp.html">main</a>
-    <a href="srpabout.html">about</a>
-    <a href="srpdata.html">data</a>
-    <a href="srpfigures.html">figures</a>
-    <a class="active" href="srpsearch.html">gene search</a>
+    <a href="index.html">Main</a>
+    <a href="srpabout.html">About RNA-seq</a>
+    <a href="srporig.html">Original Approach</a>
+    <a href="srpalt.html">Alternative Approach</a>
+    <a class="active" href="srpsearch.html">Gene Search</a>
+    <a href="srpref.html">References</a>    
 </div>
+
 
 <div class="title">
 <h2>
@@ -77,5 +79,4 @@ $conn->close();
 </div>
 </body>
 </html>
-
 
