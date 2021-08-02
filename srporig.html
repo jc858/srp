@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="UTF-8">
+    <title>SRP - Original Approach</title>
+        <meta name="Author" content=""/>
+        <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+
+<div class="navbar">
+    <a href="index.html">Main</a>
+    <a href="srpabout.html">About RNA-seq</a>
+    <a class="active" href="srporig.html">Original Approach</a>
+    <a href="srpalt.html">Alternative Approach</a>
+    <a href="srpsearch.html">Gene Search</a>
+    <a href="srpref.html">References</a>
+</div>
+
+
+<div class = "title">
+<h2>
+    The Original Approach
+</h2>
+</div>
+
+<div class = "main">
+<h3>
+    Summary of original approach's re-analysis
+</h3>
+<p>
+We attempted to reanalyse an original approach presented by Smajic et. al. in their "Single-cell sequencing of the human midbrain reveals glial activation and a neuronal state specific to Parkinson’s disease" paper.
+</p>
+<p>
+First, using the fastq-dump command, we retrieved seperate FASTQ files separate for forward and reverse reads from  raw data stored in the NCBI short read archive (SRA) in project SRP281977. These FASTQ files can be found <a href="https://www.ncbi.nlm.nih.gov/sra?term=SRP281977" target="_blank">HERE</a>.
+</p>
+
+<p>
+From this, we obtained a gene-barcode UMI count matrix per sample using the CellRanger count pipeline, using the recomended variation of the human reference transcriptome (hg38), which was used to generate a custom pre-mRNA reference transcriptome that defines the entire gene body to be an exon.
+</p>
+
+<p>
+        <a href="C1_web_summary.html" target="_blank">C1</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="IPD1_web_summary.html" target="_blank">IPD1</a>
+
+</p>
+<p>
+        <a href="C2_web_summary.html" target="_blank">C2</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="IPD2_web_summary.html" target="_blank">IPD2</a>
+
+</p>
+<p>
+        <a href="C3_web_summary.html" target="_blank">C3</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="IPD3_web_summary.html" target="_blank">IPD3</a>
+
+</p>
+<p>
+        <a href="C4_web_summary.html" target="_blank">C4</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="IPD4_web_summary.html" target="_blank">IPD4</a>
+
+</p>
+<p>
+        <a href="C5_web_summary.html" target="_blank">C5</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<a href="IPD5_web_summary.html" target="_blank">IPD5</a>
+
+</p>
+<p>
+        <a href="C6_web_summary.html" target="_blank">C6</a>
+</p>
+
+<p>
+After this, by following the bash workflow scripts “run_analysis_midbrain.sh” avaiable on github, we performed quality control on each sample. Then, we filtered out barcodes that had less than 1500 UMIs and 1000 genes, more than 10% of mtDNA and ribosomal genes. Results of filtering are presented in form of charts below.
+</p>
+<p>
+<b>Chart 1:</b> Number of features in each sample before (RAW) and after filtering
+</p>
+<img src="figures/filtered_feat.png" alt="Figure showing the clusters present" width="75%">
+<p>
+<b>Chart 2:</b> Number of cells in each sample before (RAW) and after filtering
+</p>
+<img src="figures/filtered_cell.png" alt="Figure showing the clusters present" width="75%">
+<p>
+Following this, we performed normalization, sample integration and clustering. This step involved two approaches:<br>
+I. Without normalization using the SCTransform approch<br>
+II. With normalization using the SCTransform approch
+</p>
+<p>
+In total, we embedded the 44,921 nuclei transcriptomes into two dimention using the UMAP algorithm. Approach II generated two t-SNE and UMAP plots before and after batch correction.
+</p>
+<p>
+<b>Figure 1A:</b> Embeddings based on the top 25 non-corrected principal components
+</p>
+<img src="figures/Figure1A.png" alt="Figure showing the clusters present" width="75%">
+<p>
+<b>Figure 1B:</b> Sample before batch correction
+</p>
+<img src="figures/Figure1B.png" alt="Figure showing the clusters present" width="75%">
+<p>
+<b>Figure 2A:</b> Embeddings based on the top 25 principal components after removing the inter-individual variability.
+</p>
+<img src="figures/Figure2A.png" alt="Figure showing the clusters present" width="75%">
+<p>
+<b>Figure 2B:</b> Sample before batch correction
+</p>
+<img src="figures/Figure2B.png" alt="Figure showing the clusters present" width="75%">
+
+<p>
+Further, we identified gene markers and found 7 major group cells (Figure 3)
+</p>
+<p>
+<b>Figure 3:</b> Marker gene identification output with normalization step (Approach II)
+</p>
+<img src="figures/Figure3.jpeg" alt="Figure showing the clusters present" width="75%">
+
+
+<p>
+For comparision, Figure 4 presents marker gene identification output without normalization step (Approach I). Here, 8 major group cells are presented.
+</p>
+<p>
+<b>Figure 4:</b> Marker gene identification output with normalization step (Approach I)
+</p>
+<img src="figures/Figure4.jpeg" alt="Figure showing the clusters present" width="75%">
+<p>
+Wilcoxon statistical test was applied in performed re-analysis. The TSV outut file generated was used for Gene Search function on this website. Figure 5 presents genes markers heatmap across major group cells.
+</p>
+<p>
+<b>Figure 5:</b> Wilcoxon gene markers heatmap
+</p>
+<img src="figures/Figure5.jpeg" alt="Figure showing the clusters present" width="75%">
+<p>
+Moreover, Expression distribution of cell-type marker genes on ~45,000 midbrain cells can be found <a href="samplefigs.html" target="_blank">HERE</a>.
+</p>
+<p>
+Lastly, we estimated differential cell type contribution in IPD and control samples.
+</p>
+<p>
+<b>Figure 6:</b> Composition of nuclei from IPD and control samples to different clusters 
+</p>
+<img src="figures/Figure6.png" alt="Figure showing the clusters present" width="75%">
+<p>
+<b>Figure 7:</b> Proportion of IPD and control samples profiled cells per cluster.
+</p>
+<img src="figures/Figure7.jpeg" alt="Figure showing the clusters present" width="75%">
+<p>
+<b>Figure 8:</b> Heatmap presenting differential cell types density in control and IPD samples.
+</p>
+<img src="figures/Figure8.png" alt="Figure showing the clusters present" width="75%">
+<p>
+In conclusion, we were not able to re-analyse the original approach due to numerous issues with the script provided by the original paper's authors. Moreover, due to the missing file, we were forced to create an alternative analysis with the use of draft R scripts, of which the results are presented above.
+</p>
+
+</div>
+</body>
+</html>
